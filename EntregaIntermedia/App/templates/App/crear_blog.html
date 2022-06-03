@@ -1,0 +1,94 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+
+{% block cambiante %}
+
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+
+<p><h3>CREAR NUEVO BLOG</h3></p>
+
+
+
+{% if miFormulario.errors %}
+
+<div class="alert alert-danger">
+    <strong>ERROR!</strong> Los valores completados son incorrectos.
+  </div>
+
+{% endif %}
+
+
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        <article>
+            <!-- Post header-->
+            <table>
+                
+                <section class=" gradient-custom">
+                    <div class="container py-3 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-4 text-center">
+                
+                            <div class="mb-md-5 mt-md-4 pb-4">
+                
+                               
+                
+                                <div class="form-outline form-white mb-4" style="margin-left: 20%; margin-right: 20%;">
+                                    <label class="form-label" for="typeEmailX">Titulo</label>
+                                <input style="text-align: center;" type="text" name="titulo" class="form-control form-control-lg" />
+                                
+                                </div>
+                                <div class="form-outline form-white mb-4" style="margin-left: 20%; margin-right: 20%;">
+                                    <label class="form-label" for="typeEmailX">Subtitulo</label>
+                                    <input  style="text-align: center;"type="text" name="subtitulo" class="form-control form-control-lg" />
+                                    
+                                </div>
+                                <hr>
+                                <p><label class="form-label" for="typeEmailX">Contenido</label></p>
+                                <div class="form-outline form-white mb-4">
+                                    
+                                    {{miFormulario.contenido}}
+                                    
+                                </div>
+                                <hr>
+                                <div class="form-outline form-white mb-4">
+                                    {{miFormulario.foto}}
+                                    <label class="form-label" for="typeEmailX">Imagen</label>
+                                </div>
+                
+                            
+                
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Crear</button>
+                
+                    
+                
+                            </div>
+                
+                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                
+                
+            
+            </table>
+            
+            
+                
+        </article>
+
+    </form>
+    
+{% endblock cambiante %}
+
+

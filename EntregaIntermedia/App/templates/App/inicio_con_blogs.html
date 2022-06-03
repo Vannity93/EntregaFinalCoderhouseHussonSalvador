@@ -1,0 +1,52 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+<P><h3>Bienvenido a mi pagina!</h3></P>
+
+
+
+<p style="margin: 4%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque eius incidunt iure aut maxime minus sit eligendi dolorum assumenda nisi iste ullam modi ipsum doloribus inventore dolore in, sequi id?
+Perspiciatis consequuntur possimus dolorum ex quo voluptatum harum cumque obcaecati neque? Quas, obcaecati, fugit id doloremque maxime natus, inventore culpa perferendis Salvador Hussonnesciunt dolorum quos alias magnam eveniet omnis deserunt corporis?
+Quod, architecto esse. Salvador Husson Praesentium voluptatem tempora asperiores quam a? Salvador Husson Illum possimus itaque corrupti deserunt architecto harum ut accusantium ea Salvador Husson aliquid nesciunt quas facere ex dicta hic, provident, at rem ratione?
+Expedita fugiat voluptatem in, fugit quod, provident quis, eum illo harum a quo quasi labore corrupti! Ipsum voluptatibus placeat, Salvador Husson maiores impedit beatae modi voluptate aspernatur doloremque, pariatur obcaecati, facere cumque!</p>
+
+
+
+            
+<p><h2>Por ahi te interese el siguiente blog</h2></p>
+<article>
+    <!-- Post header-->
+    <div class="container bcontent  ">
+
+    
+    
+        <div class="card border border-3 border-dark" style="width: 80%; margin: 1%;" >
+            <div class="row no-gutters">
+                <div class="col-sm-3">
+                    <img class="card-img" src="{{rfoto}}" width="50px" height="100px"  style=" margin-top: 18%; margin-left: 10%; ">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h1 class="card-title">{{rblog.titulo}}</h1>
+                        
+                        <p class="card-text">Creador por: {{rblog.creador}}</p>
+                        <p class="card-text">Creador por: {{rblog.creacion}}</p>
+                        
+                    </div>
+                    <hr>
+                </div>
+                <div style="padding-left: 5%; padding-right: 5%; padding-bottom: 5%;">
+    
+                <p>{{rblog.contenido | safe}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+    
+{% endblock cambiante %}
+

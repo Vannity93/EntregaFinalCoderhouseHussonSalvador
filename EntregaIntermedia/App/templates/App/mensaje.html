@@ -1,0 +1,133 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+
+<div>
+    {% if miFormulario.errors %}
+    <div class="alert alert-danger">
+        <strong>ERROR!</strong> Los valores completados son incorrectos.
+      </div>
+    {% endif %}
+        
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+            
+            
+        
+        <article>
+            <!-- Post header-->
+            <section class=" gradient-custom">
+                <div class="container py-3 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-4 text-center">
+            
+                        <div class="mb-md-5 mt-md-4 pb-4">
+                            
+                        
+                            <h2 class="fw-bold mb-2 text-uppercase">Mensajes</h2>
+                            <p class="text-white-50 mb-5">Por favor complete la informacion para enviar un mensaje!</p>
+
+                            <div>
+                                <strong>{{mensaje}}</strong> 
+                            </div>
+            
+                            <div class="form-outline form-white mb-4">
+                                <p><label class="form-label" for="typeEmailX">Destinatario:</label></p>
+                            <input type="text" name="destinatario" class="form-control form-control-lg" />
+                            
+                            </div>
+                            <hr>
+                            <div class="form-outline form-white mb-4">
+                                <p><label class="form-label" for="typeEmailX">Mensaje:</label></p>
+                                <textarea name="contenido" id="" cols="60" rows="10"></textarea>
+                                
+                            </div>
+                            
+            
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
+            
+                
+            
+                        </div>
+            
+            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </article>
+    </form>
+
+</div>
+
+
+
+{% if request.user.is_authenticated%}
+
+<P><h1>MENSAJES RECIBIDOS</h1></P>
+
+    <div style="text-align: center;" >
+        <table class="table">
+
+
+            <tbody>
+                
+                {% for x in mensajes %}
+                <section class=" gradient-custom">
+                    <div class="container py-3 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body  text-center">
+                
+                            <div class="mb-md-5 mt-md-4">
+                                
+                                <div class="form-outline form-white mb-4">
+                                    <p><label class="form-label" for="typeEmailX">Remitente:</label></p>
+                                    <p><label class="form-label" for="typeEmailX">{{x.remitente}}</label></p>
+                        
+                                </div>
+                                <hr>
+                                <div class="form-outline form-white mb-4">
+                                    <p><label class="form-label" for="typeEmailX">Mensaje:</label></p>
+                                    <p><label class="form-label" for="typeEmailX">{{x.contenido}}</label></p>  
+                                </div>
+            
+                            </div>
+                
+                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            
+                {% endfor %}
+                
+                    
+            
+           
+                
+            </tbody>
+            
+            
+
+{% else %}
+<p>no hay mensajes</p>
+
+{% endif %}
+
+    
+    
+{% endblock cambiante %}

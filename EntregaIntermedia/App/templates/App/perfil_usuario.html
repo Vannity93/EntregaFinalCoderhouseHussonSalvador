@@ -1,0 +1,70 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+  
+                
+                <p><img  class="img-fluid rounded-circle mb-4 border border-3 border-light" src="{{fotoAvatar}}" width="250px"  ></p>
+
+                {% if request.user.is_superuser %}
+                <a class="btn btn-outline-light" href="{% url 'AgregarAvatar'%}">Cambia tu avatar!</a> 
+                <a class="btn btn-outline-light" href="{% url 'BorrarAvatar'%}">borra tu avatar!</a> 
+                {% endif %}
+                <hr>
+                <div style="padding: 5%;">
+                <p>Nombre de usuario: {{usuario.username}}</p>
+                <p>Nombre: {{usuario.first_name}}</p>
+                <p>Apellido: {{usuario.last_name}}</p>
+                <p>Email: {{usuario.email}}</p>
+                </div>
+                
+                <a class="btn btn-outline-light" href="{% url 'EditarPerfil'%}">Editar tu informacion!</a> 
+                <a class="btn btn-outline-light" href="{% url 'ResetPass'%}">Modifica tu contraseña!</a> 
+                <hr>
+              
+                <p>Pagina de contacto</p>
+                
+                
+                  
+                
+                {% for x in redes %}
+                  
+                
+                <a href="{{post.x.pagina}}"></a>
+                <p>{{x.pagina}}</p>
+                  
+                  <a class="btn btn-outline-light" href="{% url 'EliminarRedes' x.id%}">Borrar pagina</a> 
+                  <a class="btn btn-outline-light" href="{% url 'EditarRedes' x.id%}">Modificar pagina</a>
+                {% endfor %}
+
+                  <hr>
+                  
+                  <p style="margin: 2%;"><a class="btn btn-outline-light" href="{% url 'CrearRedes'%}">Agrega pagina</a></p>
+                  <p style="font-size: 13px;">(Para agregar mas redes borre la anterior)</p>
+              </div>
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<p><a class="btn btn-outline-secondary border-dark" href="{% url 'Inicio' %}">Volver al inicio</a></p>
+    
+{% endblock cambiante %}

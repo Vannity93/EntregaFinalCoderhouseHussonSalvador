@@ -1,0 +1,56 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+
+
+<div style="margin: 2%;">
+{% for p in blogs %}
+    
+
+<div class="container bcontent  ">
+
+    <h2>{{p.titulo}}</h2>
+    
+    <div class="card border border-3 border-dark" style="width: 500px;">
+        <div class="row no-gutters">
+            <div class="col-sm-5">
+                <img class="card-img" src="{{p.foto.url}}" width="50px" height="150px" style="padding: 1%; margin-top: 6%; margin-left: 5%;">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h3 class="card-title">{{p.subtitulo}}</h3>
+                    <p class="card-text">Creador por: {{p.creador}}</p>
+                    
+                        <div style="padding: 1%;">   
+                                      
+                                <a class="btn btn-outline-secondary border-dark" href="{% url 'BorrarBlog' p.id%}">Borrar</a>      
+                                <a class="btn btn-outline-secondary border-dark" href="{% url 'EditarBlog' p.id%}">Editar</a>       
+                                <a class="btn btn-outline-secondary border-dark" href="{% url 'BlogEspecifico' p.id%}">Leer mas.</a>  
+                                <p></p>     
+                        </div>      
+                        
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+        
+        
+{% endfor %}
+</div>
+
+{% if request.user.is_authenticated %}
+<div>
+    <p><a class="btn btn-outline-secondary border-dark" href="{% url 'CrearBlog' %}">Crear blog</a></p>
+    </div>    
+    
+{% endif %}
+    
+  
+{% endblock cambiante %}

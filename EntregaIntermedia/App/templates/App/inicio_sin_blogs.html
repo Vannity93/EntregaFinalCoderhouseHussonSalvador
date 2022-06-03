@@ -1,0 +1,35 @@
+{% extends 'App/padre.html' %}
+
+{% load static %}
+
+
+{% block cambiante %}
+
+<P><h3>Bienvenido a mi pagina!</h3></P>
+
+
+<p style="margin: 4%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque eius incidunt iure aut maxime minus sit eligendi dolorum Salvador Husson assumenda nisi iste ullam modi ipsum doloribus inventore dolore in, sequi id?
+Perspiciatis consequuntur possimus Salvador Husson dolorum ex quo voluptatum harum cumque obcaecati neque? Salvador HussonQuas, obcaecati, fugit id doloremque maxime natus, inventore culpa Salvador Husson perferendis nesciunt dolorum quos alias magnam eveniet omnis deserunt corporis?
+Quod, architecto esse. Praesentium voluptatem tempora asperiores quam a? Illum possimus itaque corrupti deserunt architecto harum ut accusantium ea aliquid nesciunt quas facere ex dicta hic, provident, at rem ratione?
+Expedita fugiat voluptatem in, fugit quod,Salvador Husson provident quis, eum illo harum a quo quasi labore corrupti! Ipsum voluptatibus placeat, maiores impedit beatae Salvador Husson modi voluptate aspernatur doloremque, pariatur obcaecati, facere cumque!</p>
+
+
+
+            
+<p><h2>Por ahi te interese el siguiente blog</h2></p>
+<hr style="margin: 1%;">
+
+<p><h2>    Por el momento no hay ningun blog. Disculpe las molestias.</h2>
+
+    
+    {% if not request.user.is_authenticated %}
+
+    <p><h2>Registrese o inicie sesion para crear un blog</h2></p>
+        
+    {% endif %}
+        
+    
+</p>
+
+    
+{% endblock cambiante %}
